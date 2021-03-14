@@ -1,6 +1,5 @@
 package com.cadastrousuario.cadastrousuario.models;
 
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,6 +13,7 @@ public class Usuario {
 	private String cpf;
 	private String dataNascimento;
 	private char sexo;
+	private String dataCadastro;
 	
 	@ManyToOne
 	private Cargo cargo;
@@ -42,6 +42,12 @@ public class Usuario {
 	}
 	public void setSexo(char sexo) {
 		this.sexo = sexo;
+	}
+	public String getDataCadastro() {
+		return dataCadastro;
+	}
+	public void setDataCadastro(String dataCadastro) {
+		this.dataCadastro = dataCadastro;
 	}
 	public Cargo getCargo() {
 		return cargo;
