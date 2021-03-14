@@ -2,6 +2,7 @@ package com.cadastrousuario.cadastrousuario.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,6 +37,15 @@ public class CargoController {
 		ModelAndView mv = new ModelAndView("/index");
 		Iterable<Cargo> cargos = cr.findAll();
 		mv.addObject("cargos", cargos);
+		return mv;
+	}
+	
+	@RequestMapping("/{codigo}")
+	public ModelAndView detalhesCargo(@PathVariable("codigo") long codigo) {
+		Cargo cargo = cr.findByCodigo(codigo);
+		ModelAndView mv = new ModelAndView("cargo/detalhesCargo");
+		mv.addObject("cargo", cargo);
+		System.out.println("cargo" + cargo);
 		return mv;
 	}
 }

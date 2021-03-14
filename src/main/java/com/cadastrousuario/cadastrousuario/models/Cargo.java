@@ -14,16 +14,16 @@ public class Cargo implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long codigo;
+	private long codigo;
 	
 	private String nome;
 	private String cidade;
 	
 	
-	public Long getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(Long codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 	public String getNome() {

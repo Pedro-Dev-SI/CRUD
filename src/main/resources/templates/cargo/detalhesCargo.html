@@ -19,25 +19,20 @@
 </head>
 
 <body>
-	<h1>Lista de Cargos</h1>
-	<h3><a href="/cadastrarCargo" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Cadastrar Cargo</a></h3>
-	<table class="container">
-		<thead>
-			
-			<tr>
-				<th>Cargo</th>
-				<th>Cidade</th>
-			</tr>
-			
-		</thead>
-		<tbody>
-			<tr th:each="cargo : ${cargos}">
-					<td><a th:href="${(#mvc.url('CC#detalhesCargo').arg(0, cargo.codigo)).build()}"><span th:text="${cargo.nome}"></span></a></td>
-					<td><span th:text="${cargo.cidade}"></span></td>
-			</tr>
-		</tbody>
-	</table>
+	<h1>Detalhes</h1>
+	<h3><a href="/cargos" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Lista de Cargos</a></h3>
 	
+	<div th:each="cargo : ${cargo}" class="container">
+	
+		<div class="row">
+		
+			<p>Cargo: <span th:text="${cargo.nome}"></span></p>
+			<p>Cidade: <span th:text="${cargo.cidade}"></span></p>
+		
+		</div>
+	
+	</div>
+
 	<!--JavaScript-->
     <script type="text/javascript" src="materializa/js/materialize.min.js"></script>
 </body>
