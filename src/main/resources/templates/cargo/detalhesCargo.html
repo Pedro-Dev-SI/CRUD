@@ -51,11 +51,30 @@
 		    </p>
 		    Informe a data de cadastro: <input type="date" value="" name="dataCadastro">
 			
-			
 			<button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
 			
 		</form>
-	
+	</div>
+	<h4>Lista de Funcionários</h4>
+	<div class="container" th:each="usuario : ${usuarios}">
+		<div class="row">
+			<div class="input-field col s2">
+				<p><span th:text="${usuario.nomeUsuario}"></span></p>
+			</div>
+			<div class="input-field col s2">
+				<p><span th:text="${usuario.cpf}"></span></p>
+			</div>
+			<div class="input-field col s2">
+				<p><span th:text="${usuario.dataNascimento}"></span></p>
+			</div>
+			<div class="input-field col s2">
+				<p><span th:text="${usuario.sexo}"></span></p>
+			</div>
+			<div class="input-field col s2">
+				<p><span th:text="${usuario.dataCadastro}"></span></p>
+			</div>
+			
+		</div>
 	</div>
 
 	<!--JavaScript-->

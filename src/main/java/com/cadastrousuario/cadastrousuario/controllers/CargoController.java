@@ -51,7 +51,10 @@ public class CargoController {
 		Cargo cargo = cr.findByCodigo(codigo);
 		ModelAndView mv = new ModelAndView("cargo/detalhesCargo");
 		mv.addObject("cargo", cargo);
-		System.out.println("cargo" + cargo);
+		
+		Iterable<Usuario> usuarios = ur.findByCargo(cargo);
+		mv.addObject("usuarios", usuarios);
+		
 		return mv;
 	}
 	
