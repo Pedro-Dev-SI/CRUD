@@ -4,6 +4,14 @@
 
 <head>
 
+	<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 	<meta charset="UTF-8">
 
 	<title>Cadastro de Usuários</title>
@@ -12,19 +20,26 @@
 
 <body>
 	<h1>Lista de Cargos</h1>
-	<h3><a href="/cadastrarCargo">Cadastrar Cargo</a></h3>
+	<h3><a href="/cadastrarCargo" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Cadastrar Cargo</a></h3>
 	
-	<div th:each="cargo : ${cargos}">
-	
-		<div class="row">
-			<p><span th:text="${cargo.nome}"></span></p>
-			<p><span th:text="${cargo.cidade}"></span></p>
-		</div>
-		
-		
-	</div>
-	
-	
+	<table>
+		<thead>
+			
+			<tr>
+				<th>Cargo</th>
+				<th>Cidade</th>
+			</tr>
+			
+		</thead>
+		<tbody>
+			<tr th:each="cargo : ${cargos}">
+					<td><span th:text="${cargo.nome}"></span></td>
+					<td><span th:text="${cargo.cidade}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	<!--JavaScript-->
+    <script type="text/javascript" src="materializa/js/materialize.min.js"></script>
 </body>
 
 </html>
