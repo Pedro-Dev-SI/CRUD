@@ -30,6 +30,29 @@
 			<p>Cidade: <span th:text="${cargo.cidade}"></span></p>
 		
 		</div>
+		
+		<form method="post">
+		
+			Nome: <input type="text" value="" name="nomeUsuario">
+			CPF: <input type="text" value="" name="cpf">
+			Data de Nascimento: <input type="date" value="" name="dataNascimento">
+			Sexo:
+			<p>
+		      <label>
+		        <input class="with-gap" name="sexo" type="radio"  />
+		        <span>M</span>
+		      </label>
+		    </p>
+		    <p>
+		      <label>
+		        <input class="with-gap" name="sexo" type="radio"  />
+		        <span>F</span>
+		      </label>
+		    </p>
+			
+			<button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
+			
+		</form>
 	
 	</div>
 
