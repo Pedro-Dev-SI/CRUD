@@ -14,7 +14,6 @@ public class Usuario {
 	private String cpf;
 	private String dataNascimento;
 	private char sexo;
-	private Date dataCadastro;
 	
 	@ManyToOne
 	private Cargo cargo;
@@ -44,13 +43,13 @@ public class Usuario {
 	public void setSexo(char sexo) {
 		this.sexo = sexo;
 	}
-	public Date getDataCadastro() {
-		dataCadastro = new Date();
-		return dataCadastro;
+	public Cargo getCargo() {
+		return cargo;
 	}
-	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
 	}
+	
 	
 	
 }

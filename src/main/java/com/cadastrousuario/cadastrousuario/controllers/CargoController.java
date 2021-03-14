@@ -1,6 +1,7 @@
 package com.cadastrousuario.cadastrousuario.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,13 +9,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cadastrousuario.cadastrousuario.models.Cargo;
+import com.cadastrousuario.cadastrousuario.models.Usuario;
 import com.cadastrousuario.cadastrousuario.repository.CargoRepository;
+import com.cadastrousuario.cadastrousuario.repository.UsuarioRepository;
 
 @Controller
 public class CargoController {
 	
 	@Autowired
 	private CargoRepository cr;
+	
+	@Autowired
+	private UsuarioRepository ur;
 	
 	@RequestMapping(value="/cadastrarCargo", method=RequestMethod.GET)
 	public String form() {
@@ -40,7 +46,7 @@ public class CargoController {
 		return mv;
 	}
 	
-	@RequestMapping("/{codigo}")
+	@RequestMapping(value="/{codigo}", method=RequestMethod.GET)
 	public ModelAndView detalhesCargo(@PathVariable("codigo") long codigo) {
 		Cargo cargo = cr.findByCodigo(codigo);
 		ModelAndView mv = new ModelAndView("cargo/detalhesCargo");
@@ -48,4 +54,14 @@ public class CargoController {
 		System.out.println("cargo" + cargo);
 		return mv;
 	}
+	
+	@RequestMapping(value="/{codigo}", method=RequestMethod.POST)
+	public String detalhesCargoPost(@PathVariable("codigo") long codigo, Usuario usuario) {
+		Cargo cargo = cr.findByCodigo(codigo);
+		usuario.setCargo(cargo);
+		ur.save(usuario);
+		return "redirect:/{codigo}";
+	}
+	
+	
 }
