@@ -16,7 +16,7 @@ public class Cargo implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codigo;
 	
-	private String cargo;
+	private String nome;
 	private String cidade;
 	
 	
@@ -27,10 +27,10 @@ public class Cargo implements Serializable{
 		this.codigo = codigo;
 	}
 	public String getNome() {
-		return cargo;
+		return nome;
 	}
-	public void setNome(String cargo) {
-		this.cargo = cargo;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	public String getCidade() {
 		return cidade;

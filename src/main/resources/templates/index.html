@@ -1,7 +1,30 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<title>Cadastro de Usuários</title>
+
+</head>
 
 <body>
-	<h3>Ola Mundo com Spring Boot!</h3>
+	<h1>Lista de Cargos</h1>
+	<h3><a href="/cadastrarCargo">Cadastrar Cargo</a></h3>
+	
+	<div th:each="cargo : ${cargos}">
+	
+		<div class="row">
+			<p><span th:text="${cargo.nome}"></span></p>
+			<p><span th:text="${cargo.cidade}"></span></p>
+		</div>
+		
+		
+	</div>
+	
+	
 </body>
 
 </html>
