@@ -8,6 +8,8 @@ public class CargoController {
 	
 	@RequestMapping("/cadastrarCargo")
 	public String form() {
+		
 		return "cargo/formCargo";
+		
 	}
 }
