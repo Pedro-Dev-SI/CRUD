@@ -31,7 +31,9 @@
 		
 		</div>
 		
-		<form method="post">
+		<th:block th:include="mensagemValidacao"></th:block>
+		
+		<form method="post" th:object="${usuario}">
 		
 			Nome Completo: <input type="text" value="" name="nomeUsuario">
 			CPF: <input type="text" value="" name="cpf" placeholder="xxx.xxx.xxx-xx">

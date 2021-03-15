@@ -4,15 +4,29 @@ package com.cadastrousuario.cadastrousuario.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+
 
 @Entity
 public class Usuario {
 	
 	@Id
+	@NotEmpty
+	@NotNull
+	@NotBlank
 	private String nomeUsuario;
+	@NotEmpty
+	@NotNull
+	@NotBlank
 	private String cpf;
 	private String dataNascimento;
 	private char sexo;
+	@NotEmpty
+	@NotNull
+	@NotBlank
 	private String dataCadastro;
 	
 	@ManyToOne

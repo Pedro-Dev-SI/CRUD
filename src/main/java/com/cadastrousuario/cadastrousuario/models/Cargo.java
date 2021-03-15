@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Cargo implements Serializable{
@@ -17,8 +20,13 @@ public class Cargo implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long codigo;
-	
+	@NotEmpty
+	@NotNull
+	@NotBlank
 	private String nome;
+	@NotEmpty
+	@NotNull
+	@NotBlank
 	private String cidade;
 	
 	@OneToMany

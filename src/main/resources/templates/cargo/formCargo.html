@@ -21,6 +21,8 @@
 	<h1>Cadastro de Cargos:</h1>
 	<h3><a href="/cargos" class="waves-effect waves-light btn"><i class="material-icons left">folder</i>Lista de Cargos</a></h3>
 	
+	<th:block th:include="mensagemValidacao"></th:block>
+	
 	<form class="container" method="post">
 		Cargo: <input type="text" value="" name="nome"/>
 		Cidade: <input type="text" value="" name="cidade"/>
