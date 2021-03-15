@@ -68,6 +68,10 @@ public class CargoController {
 	@RequestMapping("/deletarCargo")
 	public String deletarCargo(long codigo) {
 		Cargo cargo = cr.findByCodigo(codigo);
+		if(ur.findByCargo(cargo) != null) {
+			Iterable<Usuario> usuarios = ur.findByCargo(cargo);
+			ur.deleteAll(usuarios);
+		}
 		cr.delete(cargo);
 		return "redirect:/cargos";
 	}
