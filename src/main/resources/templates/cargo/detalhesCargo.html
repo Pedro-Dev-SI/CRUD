@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style/style.css">
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -18,66 +21,88 @@
 
 </head>
 
+
+
 <body>
-	<h1>Detalhes</h1>
-	<h3><a href="/cargos" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Lista de Cargos</a></h3>
+
+	<header>
+		<div class="navbar-fixed">
+			<nav>
+		    <div class="nav-wrapper">
+		      <a href="#" class="brand-logo">Detalhes</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="/cargos" class="waves-effect waves-light btn"><i class="material-icons left">folder</i>Lista de Cargos</a></li>
+		      </ul>
+		    </div>
+		  </nav>
+	  </div>
+
+	</header>
+
 	
-	<div th:each="cargo : ${cargo}" class="container">
-	
+	<div th:each="cargo : ${cargo}" class="container detalhesCargo">
+		<h4>Detalhes do Cargo</h4>
 		<div class="row">
 		
 			<p>Cargo: <span th:text="${cargo.nome}"></span></p>
 			<p>Cidade: <span th:text="${cargo.cidade}"></span></p>
 		
 		</div>
-		
-		<th:block th:include="mensagemValidacao"></th:block>
-		
+	</div>
+	<th:block th:include="mensagemValidacao"></th:block>
+	
+	<div class="container inputsUsuario">
 		<form method="post" th:object="${usuario}">
-		
+			
 			Nome Completo: <input type="text" value="" name="nomeUsuario">
 			CPF: <input type="text" value="" name="cpf" placeholder="xxx.xxx.xxx-xx">
 			Data de Nascimento: <input type="date" value="" name="dataNascimento">
 			Sexo: 
 			<p>
-		      <label>
-		        <input class="with-gap" name="sexo" type="radio" value="M" />
-		        <span>M</span>
-		      </label>
-		    </p>
-		    <p>
-		      <label>
-		        <input class="with-gap" name="sexo" type="radio" value="F" />
-		        <span>F</span>
-		      </label>
-		    </p>
-		    Informe a data de cadastro: <input type="date" value="" name="dataCadastro">
-			
+			 	<label>
+			     	<input class="with-gap" name="sexo" type="radio" value="M" />
+			        <span>M</span>
+			    </label>
+			</p>
+			<p>
+				<label>
+			    	<input class="with-gap" name="sexo" type="radio" value="F" />
+			        <span>F</span>
+			    </label>
+			</p>
+			Informe a data de cadastro: <input type="date" value="" name="dataCadastro">
+				
 			<button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
-			
+				
 		</form>
 	</div>
-	<h4>Lista de Funcionários</h4>
-	<div class="container" th:each="usuario : ${usuarios}">
-		<div class="row">
-			<div class="input-field col s2">
-				<p><span th:text="${usuario.nomeUsuario}"></span></p>
-			</div>
-			<div class="input-field col s2">
-				<p><span th:text="${usuario.cpf}"></span></p>
-			</div>
-			<div class="input-field col s2">
-				<p><span th:text="${usuario.dataNascimento}"></span></p>
-			</div>
-			<div class="input-field col s2">
-				<p><span th:text="${usuario.sexo}"></span></p>
-			</div>
-			<div class="input-field col s2">
-				<p><span th:text="${usuario.dataCadastro}"></span></p>
-			</div>
+	<h4 class="container perfil_titulo">Lista de Perfis</h4>
+	<table class="container tabela_de_usuarios">
+		<thead>
+		
+			<tr>
+				<th>Nome</th>
+				<th>CPF</th>
+				<th>Data de Nascimento</th>
+				<th>Sexo</th>
+				<th>Data de Cadastro</th>
+			</tr>
+		
+		</thead>
+		<tbody>
+		
+			<tr th:each="usuario : ${usuarios}">
 			
-		</div>
-	</div>
+				<td><span th:text="${usuario.nomeUsuario}"></span></td>
+				<td><span th:text="${usuario.cpf}"></span></td>
+				<td><span th:text="${usuario.dataNascimento}"></span></td>
+				<td><span th:text="${usuario.sexo}"></span></td>
+				<td><span th:text="${usuario.dataCadastro}"></span></td>
+			
+			</tr>
+		
+		</tbody>
+	</table>
 
 	<!--JavaScript-->
     <script type="text/javascript" src="materializa/js/materialize.min.js"></script>

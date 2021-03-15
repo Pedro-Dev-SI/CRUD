@@ -1,0 +1,33 @@
+.detalhesCargo{
+	box-shadow: 0px 0px 5px grey;
+	padding-left: 10px;
+	padding-top: 10px;
+	margin-bottom: 55px;
+	width: 50%;
+}
+
+.inputsUsuario{
+	box-shadow: 0px 0px 5px grey;
+	padding-left: 10px;
+	padding-top: 10px;
+	margin-bottom: 55px;
+	padding-bottom: 10px;
+	width: 50%;
+}
+
+.tabela_de_usuarios{
+	width: 50%;
+}
+
+.perfil_titulo{
+	margin-left: 480px;
+}
+
+.inputsCargo{
+	box-shadow: 0px 0px 5px grey;
+	padding-left: 10px;
+	padding-top: 10px;
+	margin-bottom: 55px;
+	padding-bottom: 10px;
+	width: 50%;
+}

@@ -8,9 +8,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style/style.css">
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
 
 	<meta charset="UTF-8">
 
@@ -18,9 +22,21 @@
 
 </head>
 
+<header>
+	<div class="navbar-fixed">
+		<nav>
+		    <div class="nav-wrapper">
+		      <a href="#" class="brand-logo">Lista de Cargos</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="/cadastrarCargo" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Cadastrar Cargo</a></li>
+		      </ul>
+		    </div>
+	  	</nav>
+  	</div>
+
+</header>
+
 <body>
-	<h1>Lista de Cargos</h1>
-	<h3><a href="/cadastrarCargo" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Cadastrar Cargo</a></h3>
 	<table class="container">
 		<thead>
 			
