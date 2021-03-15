@@ -7,4 +7,5 @@ import com.cadastrousuario.cadastrousuario.models.Usuario;
 
 public interface UsuarioRepository extends CrudRepository<Usuario, String>{
 	Iterable<Usuario> findByCargo(Cargo cargo);
+	Usuario findByCpf(String cpf);
 }

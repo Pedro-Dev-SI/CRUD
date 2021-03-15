@@ -65,6 +65,14 @@ public class CargoController {
 		return mv;
 	}
 	
+	@RequestMapping("/deletarCargo")
+	public String deletarCargo(long codigo) {
+		Cargo cargo = cr.findByCodigo(codigo);
+		cr.delete(cargo);
+		return "redirect:/cargos";
+	}
+	
+	
 	@RequestMapping(value="/{codigo}", method=RequestMethod.POST)
 	public String detalhesCargoPost(@PathVariable("codigo") long codigo, @Valid Usuario usuario, BindingResult result, RedirectAttributes attributes) {
 		if(result.hasErrors()) {
@@ -78,5 +86,14 @@ public class CargoController {
 		return "redirect:/{codigo}";
 	}
 	
+	@RequestMapping("/deletarUsuario")
+	public String deletarUsuario(String cpf) {
+		Usuario usuario = ur.findByCpf(cpf);
+		ur.delete(usuario);
+		Cargo cargo = usuario.getCargo();
+		long codigoLong = cargo.getCodigo();
+		String codigo = "" + codigoLong;
+		return "redirect:/" + codigo;
+	}
 	
 }

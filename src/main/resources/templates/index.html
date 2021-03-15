@@ -25,7 +25,7 @@
 <header>
 	<div class="navbar-fixed">
 		<nav>
-		    <div class="nav-wrapper">
+		    <div class="nav-wrapper blue-grey darken-3">
 		      <a href="#" class="brand-logo">Lista de Cargos</a>
 		      <ul id="nav-mobile" class="right hide-on-med-and-down">
 		        <li><a href="/cadastrarCargo" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Cadastrar Cargo</a></li>
@@ -43,6 +43,7 @@
 			<tr>
 				<th>Cargo</th>
 				<th>Cidade</th>
+				<th>Deletar</th>
 			</tr>
 			
 		</thead>
@@ -50,6 +51,7 @@
 			<tr th:each="cargo : ${cargos}">
 					<td><a th:href="${(#mvc.url('CC#detalhesCargo').arg(0, cargo.codigo)).build()}"><span th:text="${cargo.nome}"></span></a></td>
 					<td><span th:text="${cargo.cidade}"></span></td>
+					<td><a class="waves-effect waves-light btn-small btnDelete" th:href="${(#mvc.url('CC#deletarCargo').arg(0, cargo.codigo)).build()}"><i class="material-icons left">delete_forever</i></a></td>
 			</tr>
 		</tbody>
 	</table>
