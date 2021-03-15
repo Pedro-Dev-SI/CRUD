@@ -100,4 +100,5 @@ public class CargoController {
 		return "redirect:/" + codigo;
 	}
 	
+	
 }
